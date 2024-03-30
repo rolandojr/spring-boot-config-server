@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-boot-config-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: spring-boot-config-server
+  template:
+    metadata:
+      labels:
+        app: spring-boot-config-server
+    spec:
+      serviceAccountName: admin-role-sa
+      containers:
+        - name: spring-boot-config-server
+          image: rolandojavier13/spring-boot-config-server:v1.0.0
+          ports:
+            - containerPort: 8888
+          env:
+            - name: PORT
+              value: "8888"
+          resources:
+            requests:
+              memory: "512Mi"
+              cpu: "250m"
+            limits:
+              memory: "1024Mi"
+              cpu: "500m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: spring-boot-config-server
+spec:
+  ports:
+    - port: 8888
+      protocol: TCP
+      targetPort: 8888
+  selector:
+    app: spring-boot-config-server
+  type: NodePort
+
