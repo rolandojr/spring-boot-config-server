@@ -11,7 +11,5 @@ spring:
   application:
     name: spring-boot-config-server
 
-eureka:
-  client:
-    service-url:
-      defaultZone: http://${HOSTNAME_EUREKA:localhost:8761}/eureka
+encrypt:
+  key: A5AA66C1C29731B4EADB5BFA2C37B
