@@ -16,6 +16,7 @@ spec:
       containers:
         - name: spring-boot-config-server
           image: rolandojavier13/spring-boot-config-server:v1.0.0
+          imagePullPolicy: Always
           ports:
             - containerPort: 8888
           env:
@@ -40,5 +41,5 @@ spec:
       targetPort: 8888
   selector:
     app: spring-boot-config-server
-  type: NodePort
+  type: ClusterIP
 

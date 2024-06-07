@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.example.configserver</groupId>
     <artifactId>spring-boot-config-server</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0-SNAPSHOT</version>
     <name>spring-boot-config-server</name>
     <description>Demo project for Spring Boot in Config Server</description>
     <properties>
@@ -26,10 +26,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
     </dependencies>
     <dependencyManagement>
