@@ -2,9 +2,11 @@
 # Build stage
 #
 FROM maven:3.6.0-jdk-11-slim AS build
-COPY src /home/app/src
-COPY pom.xml /home/app
-RUN mvn -f /home/app/pom.xml clean package -DskipTests -Dmaven.test.skip=true
+WORKDIR /home/app
+COPY pom.xml .
+RUN mvn clean package -Dmaven.test.skip -Dmaven.main.skip -Dspring-boot.repackage.skip && rm -r ./target/
+COPY src ./src
+RUN mvn clean package
 
 #
 # Package stage

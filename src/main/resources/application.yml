@@ -10,6 +10,3 @@ spring:
           uri: https://github.com/rolandojr/config-server-repo.git
   application:
     name: spring-boot-config-server
-
-encrypt:
-  key: A5AA66C1C29731B4EADB5BFA2C37B
